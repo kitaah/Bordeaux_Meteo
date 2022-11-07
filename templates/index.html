@@ -2,7 +2,11 @@
 {% block title %} Home {% endblock %}
 
 {% block body %}
-    <nav id="navbar">
-        <a href="{{ url_for('__info_page') }}">Accédez à la page info</a>
-    </nav>
+<p>Nous sommes le {{ day }}/{{ month }}/{{ year }}</p>
+{% for row in releves %}
+<p>Humidité : {{ row.2 }}%</p>
+<p>Température : {{ row.3 }}°C</p>
+<p>Jour : {{ row.5 }}</p>
+<p>Heure : {{ row.6 }}h</p>
+{% endfor %}
 {% endblock %}

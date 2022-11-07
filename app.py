@@ -1,23 +1,38 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
 import datetime
 
 app = Flask(__name__)
 
+def __database_connection() :
+    HEX_SEC_KEY = 'a%45#AmllpoRF2FT(5n%'
+    app.config['MYSQL_HOST'] = 'localhost'
+    app.config['MYSQL_USER'] = 'bordeaux_meteo'
+    app.config['MYSQL_PASSWORD'] = 'ch.LOOD2.t37'
+    app.config['MYSQL_DB'] = 'bordeaux_meteo'
+    app.config['SECRET_KEY'] = HEX_SEC_KEY
+    
+def access_database_connection() :
+    return __database_connection()
+
+access_database_connection() 
+
+mysql = MySQL(app)
+
 @app.route("/")
 def __main_page():
-    return render_template("index.html") 
-def access_main_page():
-    return __main_page()
-
-@app.route("/info")
-def __info_page():
     date_day = datetime.datetime.now()
     y = date_day.year
     m = date_day.month
-    d = date_day.day    
-    return render_template("info.html", year = y, month = m, day = d) 
-def access_info_page():
-    return __info_page()
+    d = date_day.day      
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM releve")
+    data = cur.fetchall()
+    cur.close()
+    return render_template("index.html", year = y, month = m, day = d, releves = data)
+def access_main_page():
+    return __main_page()
 
 @app.errorhandler(404)
 def __404_page(error):
