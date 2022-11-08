@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, url_for
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import datetime
