@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %} Création de compte {% endblock %}
+
+{% block body %}
+    <main>
+        <section class="registration__content">
+            <article>
+                <h1>Création de compte</h1>
+                <form autocomplete="on">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="registration-user-email" placeholder="Utilisateur / Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="registration-password" placeholder="Mot de passe">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="registration-btn">Créer un compte</button>
+                </form>
+            </article>
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %} Connexion {% endblock %}
+
+{% block body %}
+    <main>
+        <section class="login-aside__content">
+            <article>
+                <h1>Accès espace utilisateur</h1>
+                <form autocomplete="on">
+                    <div class="form-group">
+                        <input type="email" class="form-control login-user-email" id="login-user-email"
+                            placeholder="Utilisateur / Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control login-password" id="login-password" placeholder="Mot de passe">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="login-btn">Connexion</button>
+                </form>
+            </article>
+    
+            <aside>
+                <p>Vous n'avez pas de compte ?</p>
+                <p><a href="{{ url_for('__inscription_page') }}">Créer un compte</a></p>
+            </aside>
+        </section>
+    </main>
+{% endblock %}

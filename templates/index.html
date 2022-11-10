@@ -1,12 +1,39 @@
 {% extends "layout.html" %}
-{% block title %} Home {% endblock %}
+{% block title %} Accueil {% endblock %}
 
 {% block body %}
-<p>Nous sommes le {{ day }}/{{ month }}/{{ year }}</p>
-{% for row in releves %}
-<p>Humidité : {{ row.2 }}%</p>
-<p>Température : {{ row.3 }}°C</p>
-<p>Jour : {{ row.5 }}</p>
-<p>Heure : {{ row.6 }}h</p>
-{% endfor %}
+    <main>
+        <section>
+            <article class="upper-data__content">
+                <i class="fa-solid fa-cloud-bolt"></i>
+                <p>Orage</p>
+                <h1>{{ day }}/{{ month }}/{{ year }}</h1>
+            </article>
+    
+            <article class="bottom-data__content">
+                <p><img src="{{ url_for('static', filename='img/graph.jpg') }}" class="graph__img" alt="google maps img"></p>
+    
+                <article class="bottom-data__content--margin-lr">
+                    <section class="humidity-temperature__data">
+                        <article>
+                            {% for row_data in releves %}
+                            <i class="fa-solid fa-droplet"></i>
+                            <h2>Humidité</h2>
+                            <p>{{ row_data.0 }} %</p>
+                        </article>
+                        <article>
+                            <i class="fa-solid fa-temperature-three-quarters"></i>
+                            <h2>Température</h2>
+                            <p>{{ row_data.1 }} °C</p>
+                            {% endfor %}
+                        </article>
+                    </section>
+
+                    <p><img src="{{ url_for('static', filename='img/google_maps.jpg') }}" class="google-maps__img" alt="google maps image"></p>
+                </article>
+    
+                <p><img src="{{ url_for('static', filename='img/graph.jpg') }}" class="graph__img" alt="google maps img"></p>
+            </article>
+        </section>
+    </main>
 {% endblock %}

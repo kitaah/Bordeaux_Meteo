@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="refresh" content="5">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/ce80081662.js" crossorigin="anonymous" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -12,16 +12,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='icon/BM_logo_window.ico') }}" />
     <title>{% block title %} {% endblock %}</title>
 </head>
+
 <body class="main__content">
-    <header id="burger_header">
+    <header id="burger_header-user">
         <p><img src="{{ url_for('static', filename='img/BM_white_logo.png') }}" class="bordeaux-meteo__logo" alt="Bordeaux Météo logo"></p>
         <nav>
-            <div id="burger-btn__header" class="container-fluid">
+            <div id="burger-btn__header-user" class="container-fluid">
                 <i class="bi bi-microsoft"></i>
             </div>
             <ul>
                 <li><a href="{{ url_for('__main_page') }}">Données</a></li>
-                <li><a href="{{ url_for('__login_page') }}">Compte</a></li>
+                <li><a href="{{ url_for('__data_management_page') }}">Gestion</a></li>
+                <li><a href="#">Déconnexion</a></li>
             </ul>
         </nav>
     </header>
@@ -34,5 +36,5 @@
 
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
-</html>
 
+</html>

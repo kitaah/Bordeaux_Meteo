@@ -1,0 +1,76 @@
+{% extends "user_layout.html" %}
+{% block title %} Espace utilisateur {% endblock %}
+
+{% block body %}
+    <main>
+        <section class="user__content">
+            <h1>Espace utilisateur</h1>
+    
+            <article class="user__content--flex">
+                <form class="user__content-form">
+                    <h2>Gérer mes seuils d'alerte</h2>
+                    <div class="form-group">
+                        <label for="temperature-limit">Seuil de températures</label>
+                        <select class="form-control" id="temperature-limit">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group__margin--top">
+                        <label for="humidity-limit">Seuil d'humidité</label>
+                        <select class="form-control" id="humidity-limit">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group__margin--top">
+                        <label for="email-frequency">Fréquence d'envoi des mails</label>
+                        <select class="form-control" id="email-frequency">
+                            <option>1 fois/semaine</option>
+                            <option>2 fois/semaine</option>
+                            <option>3 fois/semaine</option>
+                            <option>4 fois/semaine</option>
+                            <option>5 fois/semaine</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group__margin--top">
+                        <label for="receiver-frequency">Choix des destinataires</label>
+                        <select class="form-control" id="receiver-frequency">
+                            <option>Martin Dupont</option>
+                            <option>Amanda Robert</option>
+                            <option>Simon Vallin</option>
+                            <option>Roger Beaufils</option>
+                            <option>Xavier Junio</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </form>
+            <article>
+    
+            <article class="user__content--flex">
+                <form autocomplete="on" class="user__content-form sensors__form">
+                    <hgroup>
+                        <h2>Modifier l'identifiant des capteurs</h2>
+                        <h3>Renommer les différents capteurs</h3>
+                    </hgroup>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="login-user-email" placeholder="1.">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="login-password" placeholder="2.">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="login-password" placeholder="3.">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-user__form">Valider</button>
+                </form>
+            <article>
+        </section>
+    </main>
+{% endblock %}

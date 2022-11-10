@@ -1,7 +1,486 @@
+/* CSS RESET */
+html,
+body,
+span,
+h1,
+h2,
+h3,
+p,
+a,
+img,
+ul,
+li,
+form,
+label,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 62.5%;
+    font: inherit;
+}
+
 :root {
-    --main-bg-color: lightgrey;
+    --main-text-color: #ffffff;
+    --second-text-color: #00ffff;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--main-bg-color);
+    font-family: 'Aktiv_Grotesk_Ex_Medium', Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    color: var(--second-text-color);
+    transition: 0.2s ease-in;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    margin-bottom: 8rem;
+}
+
+@font-face {
+    font-family: 'Aktiv_Grotesk_Ex_Medium';
+    src: url('../font/aktiv_grotesk_ex_medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* HEADER */
+/* -- Hamburger fold-out menu for mobile first */
+#burger_header,
+#burger_header-user {
+    display: flex;
+    width: 100%;
+    height: 8rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#burger-btn__header i,
+#burger-btn__header-user i {
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+#burger_header nav,
+#burger_header-user nav {
+    position: relative;
+    width: 100%;
+}
+
+#burger_header nav ul,
+#burger_header-user nav ul {
+    list-style-type: none;
+    position: absolute;
+    bottom: -8rem;
+    left: -100vw;
+    padding-left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+#burger_header nav ul.active,
+#burger_header-user nav ul.active {
+    left: 0rem;
+    transition: all 0.5s;
+}
+
+#burger_header nav ul li,
+#burger_header-user nav ul li {
+    padding: .8rem 1.6rem;
+}
+
+/* -- Bordeaux Météo logo */
+.bordeaux-meteo__logo {
+    width: 26rem;
+}
+
+/* INDEX PAGE */
+/* -- Main content */
+.main__content {
+    padding: 2rem 2rem 8rem 2rem;
+    background: url("../img/bordeaux_sky.jpg") no-repeat fixed;
+    background-size: 100% 100%;
+}
+
+/* -- Upper data content */
+.upper-data__content {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.upper-data__content i {
+    font-size: 2rem;
+    border: 0.1rem solid var(--main-text-color);
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.upper-data__content p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.upper-data__content h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+/* -- Bottom data content */
+.bottom-data__content {
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-data__content--margin-lr {
+    margin: 0 5rem;
+}
+
+.humidity-temperature__data {
+    border: 0.1rem solid var(--main-text-color);
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.humidity-temperature__data article {
+    padding: 1.5rem 0;
+}
+
+.humidity-temperature__data article:first-child {
+    padding-right: 4rem;
+}
+
+.humidity-temperature__data i {
+    font-size: 2.5rem;
+}
+
+.humidity-temperature__data h2 {
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
+}
+
+.humidity-temperature__data p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.google-maps__img {
+    display: block;
+    margin: auto;
+    width: 28rem;
+    border: 0.1rem solid transparent;
+    border-radius: 1.6rem;
+}
+
+.graph__img {
+    display: block;
+    height: 36.5rem;
+    margin: auto;
+    width: 20rem;
+    border: 0.1rem solid transparent;
+    border-radius: 1.6rem;
+}
+
+/* LOGIN AND REGISTRATION FORM PAGES */
+/* -- Background image */
+/* -- login form */
+/* -- Inputs */
+.form-control {
+    font-size: 1.2rem;
+    border: 0.1rem solid transparent;
+    border-bottom: 0.1rem solid var(--main-text-color);
+    border-radius: 0rem;
+}
+
+.form-control:first-child {
+    margin-bottom: 2rem;
+}
+
+body,
+a,
+.form-control,
+.form-control::placeholder,
+#login-user-email,
+#login-password,
+#registration-user-email,
+#registration-password {
+    color: var(--main-text-color);
+}
+
+.form-control:focus {
+    box-shadow: none;
+    outline: none;
+    border: 0.1rem solid transparent;
+    border-bottom: 0.1rem solid var(--second-text-color);
+}
+
+/* -- Submit button */
+.btn-primary {
+    display: grid;
+    margin: auto;
+    margin-top: 3rem;
+    border: 0.1rem solid var(--main-text-color);
+    border-radius: 0rem;
+    padding: 0.6rem 2rem;
+}
+
+.btn-primary:hover {
+    border: 0.1rem solid var(--second-text-color);
+}
+
+/* -- Aside content if registration is needed */
+.login-aside__content p:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.login-aside__content aside {
+    margin-top: 6rem;
+}
+
+.login-aside__content aside a {
+    text-decoration: underline;
+}
+
+.login-aside__content aside a:hover {
+    color: var(--second-text-color);
+}
+
+/* USER PAGE */
+/* -- Main content */
+.user__content--flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -- User forms */
+.user__content-form {
+    border: 0.1rem solid var(--main-text-color);
+    border-radius: 1.5rem;
+    padding: 5rem;
+    box-shadow: #0000004d 0rem 1.18rem 2.4rem, #00000038 0rem 0.9rem 0.75rem;
+}
+
+.sensors__form {
+    margin-left: 5rem;
+}
+
+.user__content-form {
+    white-space: nowrap;
+}
+
+/* -- H2 & H3 titles */
+.user__content-form h2 {
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.user__content-form h3 {
+    padding-bottom: 2rem;
+}
+
+/* -- Labels, inputs & buttons */
+.user__content label {
+    font-size: 1.1rem;
+}
+
+.form-group__margin--top {
+    margin-top: 3rem;
+}
+
+.btn-user__form {
+    margin-top: 7rem;
+}
+
+/* ERROR 404 PAGE */
+.error-404__content {
+    text-align: center;
+}
+
+.error-404__content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.error-404__content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.error-404__content p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* COMMON CONTENT FOR THE PAGES */
+.form-control,
+.form-control:focus,
+.btn-primary,
+.btn-primary:hover,
+#login-btn:active,
+#registration-btn:active {
+    background: transparent;
+}
+
+.login-aside__content h1,
+.registration__content h1,
+.user__content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 7rem;
+}
+
+.login-aside__content h1,
+.login-aside__content aside,
+.registration__content h1,
+.user__content h1,
+.user__content h2 {
+    text-align: center;
+}
+
+.login-aside__content,
+.registration__content {
+    width: 36rem;
+}
+
+.login-aside__content,
+.registration__content {
+    margin: auto;
+}
+
+.bordeaux-meteo__logo-mobile {
+    display: none;
+}
+
+/* MEDIAS QUERIES */
+@media only screen and (max-width: 1400px) {
+    /* USER PAGE */
+    .user__content--flex {
+        flex-direction: column;
+    }
+
+    .sensors__form {
+        margin: 5rem 0 0 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .main__content {
+        padding: 2rem 2rem 2rem 2rem;
+        background-size: cover;
+    }
+
+    /* HEADER */
+    header {
+        margin-bottom: 9rem;
+    }
+
+    .bordeaux-meteo__logo {
+        display: none;
+    }
+
+    .bordeaux-meteo__logo-mobile {
+        display: block;
+        margin: auto;
+        width: 60%;
+        margin-top: 4rem;
+    }
+
+    /* LOGIN AND REGISTRATION PAGE */
+    .login-aside__content,
+    .registration__content {
+        padding-bottom: 5rem;
+    }
+
+    .login-aside__content,
+    .registration__content {
+        width: 30rem;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
+    hgroup {
+        white-space: normal;
+    }
+
+    /* USER PAGE */
+    .user__content-form {
+        padding: 2rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* HEADER */
+    /* Hamburger fold-out menu */
+    #burger-btn__header,
+    #burger-btn__header-user {
+        display: none;
+    }
+
+    #burger_header nav ul,
+    #burger_header-user nav ul {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        bottom: inherit;
+        left: inherit;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .login-aside__content,
+    .registration__content {
+        width: 20rem;
+    }
 }

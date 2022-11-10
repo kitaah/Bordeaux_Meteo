@@ -1,6 +1,14 @@
 {% extends "layout.html" %}
+{% block title %} Erreur 404 {% endblock %}
 
-{% block content %}
-<h1>Oups !</h1>
-<p>La page que vous recherchez n'existe pas.</p>
+{% block body %}
+<main>
+    <section class="error-404__content">
+        <h1>Erreur 404</h1>
+        <article>
+            <h2>Oups !</h2>
+            <p>La page que vous recherchez n'existe pas !</p>
+        </article>
+    </section>
+</main>
 {% endblock %}
