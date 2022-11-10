@@ -55,8 +55,8 @@ def access_data_management_page():
 def __error_404_page(error):
     return render_template('404.html'),404
 
-def access_error_404_page():
-    return __error_404_page()
+def access_error_404_page(error):
+    return __error_404_page(error)
 
 def __runApp():
     if __name__ == "__main__":
