@@ -68,6 +68,39 @@ document.addEventListener("DOMContentLoaded",() => {
     reddit.href = `http://www.reddit.com/submit?url=${link}&title=${title}`;
 });
 
+// HOME PAGE - Leaflet map
+let bordeauxMeteoMap = L.map('map').setView([44.865210, -0.577260], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(bordeauxMeteoMap);
+
+let firstSensor = L.circle([44.876945, -0.557332], {
+    color: '#861010',
+    fillColor: '#ff0000',
+    fillOpacity: 0.5,
+    radius: 70
+}).addTo(bordeauxMeteoMap);
+
+let secondSensor = L.circle([44.862936, -0.602281], {
+    color: '#0f0fac',
+    fillColor: '#0000ff',
+    fillOpacity: 0.5,
+    radius: 70
+}).addTo(bordeauxMeteoMap);
+
+let thirdSensor = L.circle([44.848361, -0.560828], {
+    color: '#0c570c',
+    fillColor: '#008000',
+    fillOpacity: 0.5,
+    radius: 70
+}).addTo(bordeauxMeteoMap);
+
+
+
+
+
+
 
 
 
