@@ -3,37 +3,56 @@
 
 {% block body %}
     <main>
-        <section>
+        <section class="meteorological-data__content">
+            <h1>Données météorologiques</h1>
             <article class="upper-data__content">
                 <i class="fa-solid fa-cloud-bolt"></i>
                 <p>Orage</p>
-                <h1>{{ day }}/{{ month }}/{{ year }}</h1>
+                <h2>{{ day }}/{{ month }}/{{ year }}</h2>
             </article>
     
-            <article class="bottom-data__content">
-                <p><img src="{{ url_for('static', filename='img/graph.jpg') }}" class="graph__img" alt="google maps img"></p>
-    
-                <article class="bottom-data__content--margin-lr">
+            <article class="middle-data__content">  
+                <article class="middle-data__content--margin-lr">
+                    <h2>Dernières données</h2>
                     <section class="humidity-temperature__data">
                         <article>
-                            {% for row_data in releves %}
+                            {% for row_data in last_data %}
                             <i class="fa-solid fa-droplet"></i>
-                            <h2>Humidité</h2>
+                            <h3>Humidité</h3>
                             <p>{{ row_data.0 }} %</p>
                         </article>
                         <article>
                             <i class="fa-solid fa-temperature-three-quarters"></i>
-                            <h2>Température</h2>
+                            <h3>Température</h3>
                             <p>{{ row_data.1 }} °C</p>
                             {% endfor %}
                         </article>
                     </section>
-
                     <p><img src="{{ url_for('static', filename='img/sensors_map.jpg') }}" class="sensors-map__img" alt="google maps image"></p>
+                </article> 
+
+                <article class="middle-data__content--padding-lr">
+                    <h2>Historique</h2>
+                    <table class="humidity-temperature__data-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fa-solid fa-droplet"></i></th>
+                                <th><i class="fa-solid fa-temperature-three-quarters"></i></th>
+                                <th><i class="fa-solid fa-clock"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for row_data in last_10_data %}
+                            <tr>
+                                <td>{{ row_data.0 }} %</td>
+                                <td>{{ row_data.1 }} °C</td>
+                                <td>{{ row_data.2 }} h</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>                                       
                 </article>
-    
-                <p><img src="{{ url_for('static', filename='img/graph.jpg') }}" class="graph__img" alt="google maps img"></p>
             </article>
-        </section>
+        </section>   
     </main>
 {% endblock %}

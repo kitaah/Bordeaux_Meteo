@@ -119,7 +119,7 @@ header {
 
 #burger_header nav ul li,
 #burger_header-user nav ul li {
-    padding: .8rem 1.6rem;
+    padding: 0.8rem 1.6rem;
 }
 
 /* -- Bordeaux Météo logo */
@@ -127,7 +127,13 @@ header {
     width: 26rem;
 }
 
-/* INDEX PAGE */
+/* FOOTER */
+/* Bordeaux Météo logo for mobile first */
+.bordeaux-meteo__logo-mobile {
+    display: none;
+}
+
+/* HOME PAGE */
 /* -- Main content */
 .main__content {
     padding: 2rem 2rem 8rem 2rem;
@@ -135,12 +141,13 @@ header {
     background-size: 100% 100%;
 }
 
-/* -- Upper data content */
-.upper-data__content {
-    text-align: center;
-    margin-bottom: 1rem;
+/* -- H1 title */
+.meteorological-data__content h1 {
+    font-size: 2rem;
+    margin-bottom: 5rem;
 }
 
+/* -- Upper data content */
 .upper-data__content i {
     font-size: 2rem;
     border: 0.1rem solid var(--main-text-color);
@@ -150,7 +157,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
 }
 
 .upper-data__content p {
@@ -158,19 +164,25 @@ header {
     margin: 1rem 0;
 }
 
-.upper-data__content h1 {
+.upper-data__content h2 {
     font-size: 2.5rem;
     text-transform: uppercase;
 }
 
-/* -- Bottom data content */
-.bottom-data__content {
+/* -- Data content at the middle of the page */
+.middle-data__content {
     display: flex;
     justify-content: center;
 }
 
-.bottom-data__content--margin-lr {
-    margin: 0 5rem;
+/* H2 titles */
+.middle-data__content h2 {
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.middle-data__content--margin-lr {
+    padding: 0 1.5rem;
 }
 
 .humidity-temperature__data {
@@ -178,7 +190,6 @@ header {
     border-radius: 1.5rem;
     display: flex;
     justify-content: center;
-    text-align: center;
     margin-bottom: 1.5rem;
     box-shadow: var(--main-box-shadow);
 }
@@ -195,7 +206,7 @@ header {
     font-size: 2.5rem;
 }
 
-.humidity-temperature__data h2 {
+.humidity-temperature__data h3 {
     font-size: 1.2rem;
     margin: 0.8rem 0;
 }
@@ -207,20 +218,41 @@ header {
 
 .sensors-map__img {
     display: block;
-    margin: auto;
     width: 28rem;
     border: 0.1rem solid transparent;
     border-radius: 1.6rem;
     box-shadow: var(--main-box-shadow);
 }
 
-.graph__img {
-    display: block;
-    height: 36.5rem;
-    margin: auto;
-    width: 20rem;
-    border: 0.1rem solid transparent;
-    border-radius: 1.6rem;
+/* Table at the middle of the âge */
+.humidity-temperature__data-table {
+    border: 0.1rem solid var(--main-text-color);
+    border-collapse: collapse;
+    box-shadow: var(--main-box-shadow);
+    text-align: center;
+}
+
+.humidity-temperature__data-table i {
+    font-size: 1.5rem;
+}
+
+.humidity-temperature__data-table thead {
+    background: transparent;
+}
+
+.humidity-temperature__data-table tbody {
+    color: var(--main-text-color);
+    background: transparent;
+}
+
+.humidity-temperature__data-table th,
+.humidity-temperature__data-table td {
+    vertical-align: middle;
+    padding: 0.97rem;
+}
+
+.humidity-temperature__data-table td {
+    border-right: 0.1rem solid var(--main-text-color);
 }
 
 /* LOGIN AND REGISTRATION FORM PAGES */
@@ -238,17 +270,6 @@ header {
     margin-bottom: 2rem;
 }
 
-body,
-a,
-.form-control,
-.form-control::placeholder,
-#login-user-email,
-#login-password,
-#registration-user-email,
-#registration-password {
-    color: var(--main-text-color);
-}
-
 .form-control:focus {
     box-shadow: none;
     outline: none;
@@ -259,7 +280,6 @@ a,
 /* -- Submit button */
 .btn-primary {
     display: grid;
-    margin: auto;
     margin-top: 3rem;
     border: 0.1rem solid var(--main-text-color);
     border-radius: 0rem;
@@ -335,10 +355,6 @@ a,
 }
 
 /* ERROR 404 PAGE */
-.error-404__content {
-    text-align: center;
-}
-
 .error-404__content h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -357,6 +373,17 @@ a,
 }
 
 /* COMMON CONTENT FOR THE PAGES */
+body,
+a,
+.form-control,
+.form-control::placeholder,
+#login-user-email,
+#login-password,
+#registration-user-email,
+#registration-password {
+    color: var(--main-text-color);
+}
+
 .form-control,
 .form-control:focus,
 .btn-primary,
@@ -373,11 +400,16 @@ a,
     margin-bottom: 7rem;
 }
 
+.meteorological-data__content h1,
+.upper-data__content,
+.middle-data__content h2,
+.humidity-temperature__data,
 .login-aside__content h1,
 .login-aside__content aside,
 .registration__content h1,
 .user__content h1,
-.user__content h2 {
+.user__content h2,
+.error-404__content {
     text-align: center;
 }
 
@@ -386,13 +418,13 @@ a,
     width: 36rem;
 }
 
-.login-aside__content,
-.registration__content {
-    margin: auto;
-}
 
-.bordeaux-meteo__logo-mobile {
-    display: none;
+.upper-data__content i,
+.sensors-map__img,
+.login-aside__content,
+.registration__content,
+.btn-primary {
+    margin: auto;
 }
 
 /* MEDIAS QUERIES */
@@ -404,6 +436,33 @@ a,
 
     .sensors__form {
         margin: 5rem 0 0 0;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    /* HOME PAGE */
+    .humidity-temperature__data article {
+        padding: 1.3rem 0;
+    }
+
+    .humidity-temperature__data-table {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    /* HOME PAGE */
+    .middle-data__content {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .middle-data__content--margin-lr:first-child {
+        padding: 0;
+    }
+
+    .middle-data__content--margin-lr:last-child {
+        padding: 1.5rem 0 0 0;
     }
 }
 
@@ -486,6 +545,7 @@ a,
 }
 
 @media screen and (max-width: 576px) {
+    /* LOGIN AND REGISTRATION PAGES */
     .login-aside__content,
     .registration__content {
         width: 20rem;

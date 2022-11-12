@@ -25,11 +25,16 @@ def __main_page():
     m = date_day.month
     y = date_day.year     
     select_last_data = mysql.connection.cursor()
-    sql = "SELECT H_Releve,T_Releve FROM releve ORDER BY Id_Releve DESC LIMIT 1"
-    select_last_data.execute(sql)
+    select_last_10_data = mysql.connection.cursor()
+    sql_limit_1 = "SELECT H_Releve,T_Releve FROM releve ORDER BY Id_Releve DESC LIMIT 1"
+    sql_limit_10 = "SELECT H_Releve,T_Releve,Date_Releve FROM releve ORDER BY Id_Releve DESC LIMIT 10"
+    select_last_data.execute(sql_limit_1)
+    select_last_10_data.execute(sql_limit_10)
     last_data = select_last_data.fetchall()
+    last_10_data = select_last_10_data.fetchall()
     select_last_data.close()
-    return render_template("index.html",day = d, year = y, month = m, releves = last_data)
+    select_last_10_data.close()
+    return render_template("index.html",day = d, year = y, month = m, last_data = last_data, last_10_data = last_10_data)
 def access_main_page():
     return __main_page()
 
