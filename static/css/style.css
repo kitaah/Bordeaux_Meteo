@@ -169,6 +169,17 @@ header {
     text-transform: uppercase;
 }
 
+/* -- Share buttons */
+.share_btns {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.fa-twitter {
+    margin: 0 0.5rem;
+}
+
 /* -- Data content at the middle of the page */
 .middle-data__content {
     display: flex;
@@ -224,7 +235,7 @@ header {
     box-shadow: var(--main-box-shadow);
 }
 
-/* Table at the middle of the âge */
+/* Table at the middle of the page */
 .humidity-temperature__data-table {
     border: 0.1rem solid var(--main-text-color);
     border-collapse: collapse;
@@ -266,8 +277,8 @@ header {
     border-radius: 0rem;
 }
 
-.form-control:first-child {
-    margin-bottom: 2rem;
+.form-control {
+    margin-bottom: 3rem;
 }
 
 .form-control:focus {
@@ -280,7 +291,6 @@ header {
 /* -- Submit button */
 .btn-primary {
     display: grid;
-    margin-top: 3rem;
     border: 0.1rem solid var(--main-text-color);
     border-radius: 0rem;
     padding: 0.6rem 2rem;
@@ -350,10 +360,6 @@ header {
     margin-top: 3rem;
 }
 
-.btn-user__form {
-    margin-top: 7rem;
-}
-
 /* ERROR 404 PAGE */
 .error-404__content h1 {
     font-size: 3rem;
@@ -380,7 +386,8 @@ a,
 #login-user-email,
 #login-password,
 #registration-user-email,
-#registration-password {
+#registration-password,
+#sensors-name {
     color: var(--main-text-color);
 }
 
@@ -446,7 +453,7 @@ a,
     }
 
     .humidity-temperature__data-table {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 

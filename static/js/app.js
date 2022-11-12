@@ -52,6 +52,25 @@ document.addEventListener("DOMContentLoaded",() => {
     });
 });
 
+// HOME PAGE - Share buttons on social media
+document.addEventListener("DOMContentLoaded",() => {
+    let link = encodeURI(window.location.href);
+    let message = encodeURIComponent("Voici le dernier relevé météo de Bordeaux !");
+    let title = encodeURIComponent("Dernier relevé météo de Bordeaux ☀️");
+
+    let facebook = document.querySelector('.facebook')
+    facebook.href = `https://www.facebook.com/share.php?u=${link}`;
+
+    let twitter = document.querySelector('.twitter');
+    twitter.href = `http://twitter.com/share?&url=${link}&text=${message}&hashtags=BordeauxMétéo,température,humidité`;
+
+    let reddit = document.querySelector('.reddit');
+    reddit.href = `http://www.reddit.com/submit?url=${link}&title=${title}`;
+});
+
+
+
+
 
 
 

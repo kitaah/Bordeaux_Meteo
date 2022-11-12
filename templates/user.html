@@ -54,21 +54,20 @@
             <article>
     
             <article class="user__content--flex">
-                <form autocomplete="on" class="user__content-form sensors__form">
+                <form action="{{ url_for('__data_management_page') }}" method="POST" class="user__content-form sensors__form">
                     <hgroup>
                         <h2>Modifier l'identifiant des capteurs</h2>
                         <h3>Renommer les différents capteurs</h3>
                     </hgroup>
+                    {% for row_data in all_sensors %}
                     <div class="form-group">
-                        <input type="text" class="form-control" id="login-user-email" placeholder="1.">
+                        <input type="hidden" class="form-control" name="sensors-id" id="sensors-id" value="{{ row_data.0 }}">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="login-password" placeholder="2.">
+                        <input type="text" class="form-control" name="sensors-name" id="sensors-name" value="{{ row_data.1 }}">
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="login-password" placeholder="3.">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-user__form">Valider</button>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Valider</button>
                 </form>
             <article>
         </section>

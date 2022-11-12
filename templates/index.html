@@ -10,6 +10,12 @@
                 <p>Orage</p>
                 <h2>{{ day }}/{{ month }}/{{ year }}</h2>
             </article>
+
+            <aside class="share_btns">
+                <a class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a class="twitter" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a class="reddit" target="_blank"><i class="fa-brands fa-reddit"></i></a>
+            </aside>
     
             <article class="middle-data__content">  
                 <article class="middle-data__content--margin-lr">
@@ -19,12 +25,12 @@
                             {% for row_data in last_data %}
                             <i class="fa-solid fa-droplet"></i>
                             <h3>Humidité</h3>
-                            <p>{{ row_data.0 }} %</p>
+                            <p>{{ row_data.0 }}%</p>
                         </article>
                         <article>
                             <i class="fa-solid fa-temperature-three-quarters"></i>
                             <h3>Température</h3>
-                            <p>{{ row_data.1 }} °C</p>
+                            <p>{{ row_data.1 }}°C</p>
                             {% endfor %}
                         </article>
                     </section>
@@ -44,9 +50,9 @@
                         <tbody>
                         {% for row_data in last_10_data %}
                             <tr>
-                                <td>{{ row_data.0 }} %</td>
-                                <td>{{ row_data.1 }} °C</td>
-                                <td>{{ row_data.2 }} h</td>
+                                <td>{{ row_data.0 }}%</td>
+                                <td>{{ row_data.1 }}°C</td>
+                                <td>{{ row_data.2 }}h</td>
                             </tr>
                         {% endfor %}
                         </tbody>
