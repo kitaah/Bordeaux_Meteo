@@ -6,8 +6,11 @@
         <section class="meteorological-data__content">
             <h1>Données météorologiques</h1>
             <article class="upper-data__content">
-                <i class="fa-solid fa-cloud-bolt"></i>
-                <p>Orage</p>
+                <p class="la"><i class="fa-solid bi-microsoft bordeaux-meteo__small-logo"></i></p>
+                <div class="container">
+                    <p id="humidity-info__sentence"></p>
+                    <p id="temperature-info__sentence"></p>
+                </div>
                 <h2>{{ day }}/{{ month }}/{{ year }}</h2>
             </article>
 
@@ -24,13 +27,13 @@
                         <article>
                             {% for row_data in last_data %}
                             <i class="fa-solid fa-droplet"></i>
-                            <h3>Humidité</h3>
-                            <p>{{ row_data.0 }}%</p>
+                            <h3>Humidité (%)</h3>
+                            <p id="humidity__data">{{ row_data.0 }}</p>
                         </article>
                         <article>
                             <i class="fa-solid fa-temperature-three-quarters"></i>
-                            <h3>Température</h3>
-                            <p>{{ row_data.1 }}°C</p>
+                            <h3>Température (°C)</h3>
+                            <p id="temperature__data">{{ row_data.1 }}</p>
                             {% endfor %}
                         </article>
                     </article>

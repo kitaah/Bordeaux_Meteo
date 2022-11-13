@@ -1,5 +1,3 @@
-from flask_mysqldb import MySQL
-
 def __converting_data(string):
     CP1 = "62182233"
     CP2 = "06182660"
@@ -17,7 +15,7 @@ def __converting_data(string):
 
             # afficher la température
             position_temp = string.find(capteur) + 14
-            valeur_temp = string[position_temp : position_temp+4]
+            valeur_temp = string[position_temp : position_temp + 4]
             if valeur_temp[0:1] == '4':
                 température = (int(valeur_temp[1:4], 16) / 10) * -1
             else:
@@ -27,13 +25,13 @@ def __converting_data(string):
 
             # afficher le niveau de batterie
             position_bat = string.find(capteur)+10
-            valeur_bat = string[position_bat:(position_bat+4)]
+            valeur_bat = string[position_bat:(position_bat + 4)]
             batterie = float.fromhex(valeur_bat)*(0.001)
             #print("La batterie de "  + capteur + " est " + str(round(batterie, 3)) + "V.")
 
             # afficher le signal RSSI
-            position_sig = string.find(capteur)+20
-            valeur_sig = string[position_sig:(position_sig+2)]
+            position_sig = string.find(capteur) + 20
+            valeur_sig = string[position_sig:(position_sig + 2)]
             signal = int(valeur_sig, 16)
             #print("Le signal RSSI de " + capteur + " est -" + str(signal) + "dBm.")
 

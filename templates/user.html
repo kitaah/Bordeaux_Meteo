@@ -5,6 +5,10 @@
     <main>
         <section class="user__content">
             <h1>Espace utilisateur</h1>
+
+            {% if session['Prenom_Utilisateur'] %}
+            <p>Bienvenue {{ session['Prenom_Utilisateur']}} !</p>
+            {% endif %}
     
             <article class="user__content--flex">
                 <form class="user__content-form">
