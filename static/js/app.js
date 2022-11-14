@@ -98,7 +98,7 @@ let thirdSensor = L.circle([44.848361, -0.560828], {
     }).addTo(bordeauxMeteoMap);
 });
 
-// HOME PAGE - Leaflet map
+// HOME PAGE - Icons & text changing (temperature & humidity)
 document.addEventListener("DOMContentLoaded",() => {
 let tempData = document.getElementById("temperature__data");
 let textTempData = tempData.innerHTML
@@ -234,6 +234,55 @@ let bordeauxMeteoIcon = document.getElementsByClassName("bordeaux-meteo__small-l
         bordeauxMeteoIcon.classList.add("border-ten");
     }
 }); 
+
+// HOME PAGE - Chart.js 
+document.addEventListener("DOMContentLoaded",() => { 
+    let ctx = document.getElementById("chart").getContext('2d');
+    let data = {
+        labels: ["juin", "juillet", "août", "septembre","octobre", "novembre"],
+        datasets: [{
+            label: "Température",
+            backgroundColor: "#ff0000",
+            borderColor: "#cc0000",
+            borderWidth: 2,
+            data: [24,28,32,28,22,17]
+            },  
+        {
+            label: "Humidité",
+            backgroundColor: "#0e7adb",
+            borderColor: "#1b5488",
+            borderWidth: 2,
+            data: [50,52,68,77,86,89]
+            }
+        ] 
+    }
+
+    let config = {
+        type: 'line',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Evolution au cours des 6 derniers mois",
+                    padding: {
+                    top: 10,
+                    bottom: 20
+                    },
+                    font: {
+                    size: 16,
+                    family: 'Helvetica Neue',
+                    }
+                }
+            }
+        }
+    }
+    let graph = new Chart(ctx, config);
+});
+
+
+
+
 
 
 

@@ -31,12 +31,12 @@ def __main_page():
     m = date_day.month
     y = date_day.year     
     select_last_data = mysql.connection.cursor()
-    sql_limit_1 = "SELECT H_Releve,T_Releve FROM releve ORDER BY Id_Releve DESC LIMIT 1"
+    sql_limit_1 = "SELECT H_Releve,T_Releve,Nom_Sensor FROM releve ORDER BY Id_Releve DESC LIMIT 1"
     select_last_data.execute(sql_limit_1)
     last_data = select_last_data.fetchall()
     select_last_data.close()
     select_last_15_data = mysql.connection.cursor()
-    sql_limit_15 = "SELECT H_Releve,T_Releve,Date_Releve FROM releve ORDER BY Id_Releve DESC LIMIT 15"
+    sql_limit_15 = "SELECT H_Releve,T_Releve,Date_Releve,Nom_Sensor FROM releve ORDER BY Id_Releve DESC LIMIT 15"
     select_last_15_data.execute(sql_limit_15)
     last_15_data = select_last_15_data.fetchall()
     select_last_15_data.close()
@@ -110,7 +110,12 @@ def __data_management_page():
             select_sensors.execute(sql_sensors)
             all_sensors = select_sensors.fetchall()
             select_sensors.close()
-            return render_template("user.html", all_sensors = all_sensors)    
+            select_sensors_to_display = mysql.connection.cursor()
+            sql_sensors_to_display = "SELECT Id_Sensor,Nom_Sensor,DateCreation_Sensor,Id_ReceiverIMEI FROM sensor"
+            select_sensors_to_display.execute(sql_sensors_to_display)
+            all_sensors_displayed = select_sensors_to_display.fetchall()
+            select_sensors_to_display.close()
+            return render_template("user.html", all_sensors = all_sensors, all_sensors_displayed = all_sensors_displayed)    
         else:
             return redirect(url_for('__main_page')) 
 
@@ -140,5 +145,3 @@ def runApp():
     return __runApp()
 
 runApp()
-
-#test

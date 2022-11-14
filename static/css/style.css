@@ -73,7 +73,6 @@ a {
 }
 
 a:hover {
-    color: var(--second-text-color);
     transition: 0.2s ease-in;
 }
 
@@ -144,7 +143,6 @@ header {
 
 .fa-right-to-bracket {
     font-size: 2rem;
-
 }
 
 /* -- Bordeaux Météo logo */
@@ -158,10 +156,16 @@ header {
     display: none;
 }
 
+.lepetit-company__content {
+    margin-top: 5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
 /* HOME PAGE */
 /* -- Main content */
 .main__content {
-    padding: 2rem 2rem 8rem 2rem;
+    padding: 2rem;
     background: url("../img/bordeaux_sky.jpg") no-repeat fixed;
     background-size: 100% 100%;
 }
@@ -297,7 +301,11 @@ header {
 }
 
 .middle-data__content--margin-lr {
-    margin: 0 1.5rem;
+    margin: 0 1.5rem 5rem 1.5rem;
+}
+
+.sensor-name {
+    margin-bottom: 1rem;
 }
 
 .humidity-temperature__data {
@@ -339,26 +347,23 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    box-shadow: var(--main-box-shadow);
 }
 
 /* -- Map for the localization of the sensors */
 #map {
     width: 30rem;
     height: 30rem;
-    margin: auto;
     border: 0.1rem solid transparent;
     border-radius: 1rem;
-    box-shadow: var(--main-box-shadow);
 }
 
 .map-legend__content {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
+
+.map-legend__content p:nth-child(2) {
+    margin: 0.5rem 0;
+    }
 
 .first-sensor {
     color: #861010;
@@ -372,33 +377,23 @@ header {
     color: #0c570c;
 }
 
-/* Table at the middle of the page */
-.humidity-temperature__data-table {
-    border: 0.1rem solid var(--main-text-color);
-    border-collapse: collapse;
-}
-
 .humidity-temperature__data-table i {
     font-size: 1.5rem;
 }
 
-.humidity-temperature__data-table thead {
-    background: transparent;
+/* -- Chart */
+
+.chart-responsive__content {
+    display: none;
 }
 
-.humidity-temperature__data-table tbody {
-    color: var(--main-text-color);
-    background: transparent;
-}
-
-.humidity-temperature__data-table th,
-.humidity-temperature__data-table td {
-    vertical-align: middle;
-    padding: 0.97rem;
-}
-
-.humidity-temperature__data-table td {
-    border-right: 0.1rem solid var(--main-text-color);
+#chart {
+    background-color: white;
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 10rem;
+    box-shadow: var(--main-box-shadow);
 }
 
 /* LOGIN AND REGISTRATION FORM PAGES */
@@ -451,10 +446,6 @@ header {
     text-decoration: underline;
 }
 
-.login-aside__content aside a:hover {
-    color: var(--second-text-color);
-}
-
 /* USER PAGE */
 /* -- Main content */
 .user__content--flex {
@@ -489,13 +480,17 @@ header {
     margin-bottom: 4rem;
 }
 
-.user__content-form h3 {
-    padding-bottom: 2rem;
-}
-
 /* -- Labels, inputs & buttons */
 .user__content label {
     font-size: 1.1rem;
+}
+
+.sensors-data__content {
+    margin-top: 3rem;
+}
+
+.sensors-data__content h2 {
+    margin-bottom: 0.5rem;
 }
 
 .form-group__margin--top {
@@ -525,6 +520,7 @@ body,
 a,
 .form-control,
 .form-control::placeholder,
+.humidity-temperature__data-table tbody,
 #login-email,
 #login-password,
 #registration-fname,
@@ -536,10 +532,18 @@ a,
     color: var(--main-text-color);
 }
 
+a:hover,
+.login-aside__content aside a:hover {
+    color: var(--second-text-color);
+}
+
 .form-control,
 .form-control:focus,
 .btn-primary,
 .btn-primary:hover,
+.humidity-temperature__data-table thead,
+.humidity-temperature__data-table tbody,
+.sensors__data-table,
 #login-btn:active,
 #registration-btn:active {
     background: transparent;
@@ -560,12 +564,15 @@ a,
 .middle-data__content h2,
 .humidity-temperature__data,
 .humidity-temperature__data-table,
+.sensor-name,
+.sensors-data__content h2,
 .map-legend__content p,
 .login-aside__content h1,
 .login-aside__content aside,
 .registration__content h1,
 .user__content h1,
 .user__content h2,
+.sensors__data-table,
 .error-404__content {
     text-align: center;
 }
@@ -575,17 +582,43 @@ a,
     width: 36rem;
 }
 
+#map,
+#humidity__data,
+#temperature__data,
 .upper-data__content i,
+.sensors__data-table,
 .login-aside__content,
 .registration__content,
 .btn-primary {
     margin: auto;
 }
 
+#humidity__data,
+#temperature__data,
+#map,
 .humidity-temperature__data,
 .humidity-temperature__data-table,
 .user__content-form {
     box-shadow: var(--main-box-shadow);
+}
+
+.humidity-temperature__data-table,
+.sensors__data-table {
+    border: 0.1rem solid var(--main-text-color);
+    border-collapse: collapse;
+}
+
+.humidity-temperature__data-table th,
+.humidity-temperature__data-table td,
+.sensors__data-table th,
+.sensors__data-table td {
+    vertical-align: middle;
+    padding: 0.97rem;
+}
+
+.humidity-temperature__data-table td,
+.sensors__data-table td {
+    border-right: 0.1rem solid var(--main-text-color);
 }
 
 /* MEDIAS QUERIES */
@@ -622,14 +655,6 @@ a,
     .middle-data__content--margin-lr:last-child {
         padding: 1.5rem 0 0 0;
     }
-
-    .map-legend__content {
-        display: block;
-    }
-
-    .map-legend__content p:nth-child(2) {
-        margin: 0.5rem 0;
-    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -643,11 +668,10 @@ a,
     }
 
     .sensors__form {
-        margin: 5rem 0 0 0;
+        margin: 1rem 0 0 0;
     }
 
     .main__content {
-        padding: 2rem 2rem 2rem 2rem;
         background-size: cover;
     }
 
@@ -667,10 +691,33 @@ a,
         margin-top: 4rem;
     }
 
+    .lepetit-company__content {
+        margin-top: 2rem;
+    }
+
     /* HOME PAGE */
     #map {
-        width: 22rem;
-        height: 22rem;
+        width: 25rem;
+        height: 25rem;
+    }
+
+    .humidity-temperature__data {
+        padding: 0 1rem;
+    }
+
+    .chart__content {
+        display: none;
+    }
+
+    .chart-responsive__content {
+        display: block;
+    }
+
+    .chart__img {
+        display: block;
+        width: 31rem;
+        height: 17rem;
+        margin: auto;
     }
 
     /* LOGIN AND REGISTRATION PAGE */
@@ -718,8 +765,33 @@ a,
 
 @media screen and (max-width: 576px) {
     /* LOGIN AND REGISTRATION PAGES */
+    .humidity-temperature__data-table {
+        font-size: 0.7rem;
+    }
+
     .login-aside__content,
     .registration__content {
         width: 20rem;
+    }
+
+    .sensors__data-table {
+        font-size: 0.7rem;
+    }
+
+    .sensors__data-table th,
+    .sensors__data-table td {
+    padding: 0.7rem;
+    }
+
+    #map {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .chart__img {
+        display: block;
+        width: 20rem;
+        height: 17rem;
+        margin: auto;
     }
 }

@@ -22,10 +22,11 @@
     
             <article class="middle-data__content">  
                 <section class="middle-data__content--margin-lr">
+                    {% for row_data in last_data %}
                     <h2>Dernières données</h2>
+                    <h3 class="sensor-name">Sensor: {{ row_data.2 }}</h3>
                     <article class="humidity-temperature__data">
                         <article>
-                            {% for row_data in last_data %}
                             <i class="fa-solid fa-droplet"></i>
                             <h3>Humidité (%)</h3>
                             <p id="humidity__data">{{ row_data.0 }}</p>
@@ -40,9 +41,9 @@
                     <article>
                         <div id="map"></div>
                         <aside class="map-legend__content">
-                            <p><i class="fa-solid fa-circle first-sensor"></i> Capteur 1</p>
-                            <p><i class="fa-solid fa-circle second-sensor"></i> Capteur 2</p>
-                            <p><i class="fa-solid fa-circle third-sensor"></i> Capteur 3</p>
+                            <p><i class="fa-solid fa-circle first-sensor"></i> Capteur 1 - 06182660</p>
+                            <p><i class="fa-solid fa-circle second-sensor"></i> Capteur 2 - 06190484</p>
+                            <p><i class="fa-solid fa-circle third-sensor"></i> Capteur 3 - 62182233</p>
                         </aside>                    
                     </article>
                 </section> 
@@ -52,6 +53,7 @@
                     <table class="humidity-temperature__data-table">
                         <thead>
                             <tr>
+                                <th><i class="fa-solid fa-signal"></i></th>
                                 <th><i class="fa-solid fa-droplet"></i></th>
                                 <th><i class="fa-solid fa-temperature-three-quarters"></i></th>
                                 <th><i class="fa-solid fa-clock"></i></th>
@@ -60,6 +62,7 @@
                         <tbody>
                         {% for row_data in last_15_data %}
                             <tr>
+                                <td>{{ row_data.3 }}</td>
                                 <td>{{ row_data.0 }}%</td>
                                 <td>{{ row_data.1 }}°C</td>
                                 <td>{{ row_data.2 }}h</td>
@@ -70,5 +73,16 @@
                 </article>
             </article>
         </section>
+
+
+        <section>
+            <article class="chart-responsive__content">
+                <img src="{{ url_for('static', filename='img/graph_responsive.jpg') }}" class="chart__img" alt="graphique de données">
+            </article>
+            <article class="chart__content">
+                <canvas id="chart"></canvas>
+            </article>
+        </section>
+
     </main>
 {% endblock %}
