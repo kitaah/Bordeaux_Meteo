@@ -4,6 +4,9 @@
 {% block body %}
     <main>
         <section class="login-aside__content">
+            {% if message is defined and message %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% endif %}
             <article>
                 <h1>Accès espace utilisateur</h1>
                 <form action="{{ url_for('__login_page') }}" method="POST" autocomplete="on">

@@ -142,6 +142,11 @@ header {
     padding: 0.8rem 1.6rem;
 }
 
+.fa-right-to-bracket {
+    font-size: 2rem;
+
+}
+
 /* -- Bordeaux Météo logo */
 .bordeaux-meteo__logo {
     width: 26rem;
@@ -397,7 +402,7 @@ header {
 }
 
 /* LOGIN AND REGISTRATION FORM PAGES */
-/* --*/
+/* -- LOGIN ALERT MESSAGE */
 .alert-danger {
     margin-bottom: 2rem;
 }
@@ -462,16 +467,16 @@ header {
     font-size: 1.2rem;
 }
 
+.user__content p {
+    margin-bottom: 1rem
+}
+
 /* -- User forms */
 .user__content-form {
     border: 0.1rem solid var(--main-text-color);
     border-radius: 1.5rem;
     padding: 4rem;
     margin: 2rem;
-}
-
-.sensors__form {
-    margin-left: 5rem;
 }
 
 .user__content-form {
@@ -586,9 +591,6 @@ a,
 /* MEDIAS QUERIES */
 @media only screen and (max-width: 1400px) {
     /* USER PAGE */
-    .sensors__form {
-        margin: 5rem 0 0 0;
-    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -638,6 +640,10 @@ a,
         margin: 0;
         padding: 0;
         overflow-x: hidden;
+    }
+
+    .sensors__form {
+        margin: 5rem 0 0 0;
     }
 
     .main__content {

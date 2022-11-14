@@ -46,7 +46,6 @@ def access_main_page():
 
 @app.route("/connexion", methods = ["GET", "POST"]) 
 def __login_page(): 
-    message = ''
     if request.method == 'POST' :
         email = request.form['login-email']
         password = request.form['login-password'].encode('utf-8')
@@ -60,8 +59,6 @@ def __login_page():
                 session['AdresseMail_Utilisateur'] = user["AdresseMail_Utilisateur"]
             return redirect(url_for('__data_management_page')) 
 
-        else:
-            return render_template('login.html')
     else: return render_template('login.html')
     
 def access_login_page():
