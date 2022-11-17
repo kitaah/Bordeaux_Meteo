@@ -41,6 +41,7 @@ def __main_page():
     last_15_data = select_last_15_data.fetchall()
     select_last_15_data.close()
     return render_template("index.html",day = d, year = y, month = m, last_data = last_data, last_15_data = last_15_data)
+
 def access_main_page():
     return __main_page()
 
@@ -50,7 +51,7 @@ def __login_page():
         email = request.form['login-email']
         password = request.form['login-password'].encode('utf-8')
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cur.execute('SELECT * FROM utilisateur WHERE AdresseMail_Utilisateur = % s', (email, ))
+        cur.execute('SELECT * FROM utilisateur WHERE AdresseMail_Utilisateur = %s', (email, ))
         user = cur.fetchone()
         cur.close()
         if len(user) > 0 :
@@ -59,7 +60,8 @@ def __login_page():
                 session['AdresseMail_Utilisateur'] = user["AdresseMail_Utilisateur"]
             return redirect(url_for('__data_management_page')) 
 
-    else: return render_template('login.html')
+    else: 
+        return render_template('login.html')
     
 def access_login_page():
     return __login_page()
@@ -90,6 +92,7 @@ def __inscription_page():
     elif request.method == 'POST':
         message = "Merci de compléter tous les champs du formulaire !"
     return render_template('registration.html', message = message)
+
 def access_inscription_page():
     return __inscription_page()
 
