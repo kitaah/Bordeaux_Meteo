@@ -24,10 +24,6 @@
     --tenth-hum-color: #1c0865;
     }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Aktiv_Grotesk_Ex_Medium', Arial, Helvetica, sans-serif;
 }
