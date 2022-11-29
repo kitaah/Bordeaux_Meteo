@@ -142,7 +142,7 @@ def access_error_404_page(error):
 
 def __runApp():
     if __name__ == "__main__":
-        app.run(host = 'localhost', port = '5051', debug = True)
+        app.run(host = 'localhost', port = 8000, debug = True)
     
 def runApp():
     return __runApp()

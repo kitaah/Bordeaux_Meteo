@@ -23,7 +23,6 @@ article,
 aside,
 footer,
 header,
-hgroup,
 nav,
 section {
     margin: 0;
@@ -735,7 +734,7 @@ a:hover,
         display: none;
     }
 
-    hgroup {
+    .user__content--flex header {
         white-space: normal;
     }
 

@@ -59,9 +59,9 @@
     
             <article class="user__content--flex">
                 <form action="{{ url_for('__data_management_page') }}" method="POST" class="user__content-form sensors__form ">
-                    <hgroup>
+                    <header>
                         <h2>Modifier le nom des capteurs</h2>
-                    </hgroup>
+                    </header>
                     {% for row_data in all_sensors %}
                     <div class="form-group">
                         <input type="hidden" class="form-control" name="sensors-id" id="sensors-id" value="{{ row_data.0 }}">
