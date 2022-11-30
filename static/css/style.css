@@ -1,3 +1,37 @@
+/* CSS RESET */
+html,
+body,
+span,
+h1,
+h2,
+h3,
+p,
+a,
+img,
+ul,
+li,
+form,
+label,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+footer,
+header,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 62.5%;
+    font: inherit;
+}
+
 :root {
     --main-text-color: #ffffff;
     --second-text-color: #00ffff;
@@ -23,6 +57,10 @@
     --ninth-hum-color: #2a0e91;
     --tenth-hum-color: #1c0865;
     }
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Aktiv_Grotesk_Ex_Medium', Arial, Helvetica, sans-serif;
