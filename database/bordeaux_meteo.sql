@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `releve` (
   `Nom_Sensor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`Id_Releve`),
   KEY `Releve_Sensor_FK` (`Nom_Sensor`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `releve` (`Id_Releve`, `SignalRSSI_Releve`, `H_Releve`, `T_Releve`, `Batterie_Releve`, `Date_Releve`, `Heure_Releve`, `Nom_Sensor`) VALUES
 (2, '75', 82, 16, 3.664, '2022-11-10 16:26:48', NULL, '62182233'),
