@@ -34,6 +34,6 @@ Compte Github de **Matthis Le Mouilloir**:
 
 ## Screenshot
 
-<p><img src="screenshot.jpg" alt="screenshot du site Retro Mania"></p><br>
+<p><img src="static/img/screenshot.jpg" alt="screenshot de l'application Bordeaux Météo"></p><br>
 
 <p align="center"> <img src="https://komarev.com/ghpvc/?username=kitaah&color=brightgreen" alt="kitaah" /></p>
