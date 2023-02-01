@@ -4,6 +4,10 @@
 
 Dans le cadre de la formation de développeur informatique que je réalise actuellement au CESI de Bordeaux, j'ai réalisé une application permettant de consulter des données météorologiques relatives à la température et l'humidité captées par des sondes à Bordeaux, avec deux autres étudiants de ma promotion. Cette application fonctionne notamment grâce à une API.
 
+## Fonctionnalités
+
+- **Accès visiteur:** consulter les dernières données météorologiques, localiser les capteurs sur une carte.
+- **Accès administrateur:** création de compte, login, consulter les informations relatives aux capteurs, modifier le nom d'un capteur.
 
 ## Langages
 
